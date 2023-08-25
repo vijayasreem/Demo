@@ -1,43 +1,41 @@
 package com.sales.demo.service;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.sales.demo.repository.InvestigationManagementSystemRepository;
-import com.sales.demo.model.InvestigationManagementSystem;
 
 @Service
 public class InvestigationManagementSystemService {
 
     @Autowired
-    private InvestigationManagementSystemRepository investigationManagementSystemRepository;
+    InvestigationManagementSystemRepository investigationManagementSystemRepository;
 
-    public InvestigationManagementSystem findByCaseNumber(Long caseNumber) {
-        return investigationManagementSystemRepository.findByCaseNumber(caseNumber);
+    public void allocateCasesToInternalInvestigators() {
+        // implementation of code to allocate cases to Internal investigators
     }
 
-    public List<InvestigationManagementSystem> findByAllocateToInternalOrExternalInvestigator(String internalOrExternal) {
-        return investigationManagementSystemRepository.findByAllocateToInternalOrExternalInvestigator(internalOrExternal);
+    public void allocateCasesToExternalInvestigators() {
+        // implementation of code to allocate cases to External investigators
     }
 
-    public void generateInvoiceForExternalInvestigators() {
-        investigationManagementSystemRepository.generateInvoiceForExternalInvestigators();
+    public void generateInvoicesForExternalInvestigators() {
+        // implementation of code to generate invoices for External investigators
     }
 
     public void submitReportsToLSOAndClaimsTeam() {
-        investigationManagementSystemRepository.submitReportsToLSOAndClaimsTeam();
+        // implementation of code to submit reports to LSO and Claims team
     }
 
     public void sendEmailsAndNotificationsToUsers() {
-        investigationManagementSystemRepository.sendEmailsAndNotificationsToUsers();
+        // implementation of code to send emails and notifications to users
     }
 
     public void waiveOffCases() {
-        investigationManagementSystemRepository.waiveOffCases();
+        // implementation of code to waive off cases
     }
 
     public void maintainHistoryOfCases() {
-        investigationManagementSystemRepository.maintainHistoryOfCases();
+        // implementation of code to maintain history of cases
     }
-
 }

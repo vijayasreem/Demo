@@ -2,105 +2,88 @@ package com.sales.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class InvestigationManagementSystem {
-	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long caseNumber;
-    
-    private String internalOrExternal;
-    
-    private String status;
-    
-    private String invoices;
-    
-    private String reports;
-    
-    private String emails;
-    
-    private String notifications;
-    
-    private String waiveOff;
-    
-    private String history;
-    
-    public InvestigationManagementSystem() {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private String caseId;
+    private String caseType;
+    private String caseDescription;
+    private String caseStatus;
+    private String invoiceId;
+    private String reportStatus;
+    private String investigatorName;
+
+    public InvestigationManagementSystem(){
+
     }
-    
-    public Long getCaseNumber() {
-        return caseNumber;
+
+    public Long getId() {
+        return id;
     }
-    
-    public void setCaseNumber(Long caseNumber) {
-        this.caseNumber = caseNumber;
+
+    public void setId(Long id) {
+        this.id = id;
     }
-    
-    public String getInternalOrExternal() {
-        return internalOrExternal;
+
+    public String getCaseId() {
+        return caseId;
     }
-    
-    public void setInternalOrExternal(String internalOrExternal) {
-        this.internalOrExternal = internalOrExternal;
+
+    public void setCaseId(String caseId) {
+        this.caseId = caseId;
     }
-    
-    public String getStatus() {
-        return status;
+
+    public String getCaseType() {
+        return caseType;
     }
-    
-    public void setStatus(String status) {
-        this.status = status;
+
+    public void setCaseType(String caseType) {
+        this.caseType = caseType;
     }
-    
-    public String getInvoices() {
-        return invoices;
+
+    public String getCaseDescription() {
+        return caseDescription;
     }
-    
-    public void setInvoices(String invoices) {
-        this.invoices = invoices;
+
+    public void setCaseDescription(String caseDescription) {
+        this.caseDescription = caseDescription;
     }
-    
-    public String getReports() {
-        return reports;
+
+    public String getCaseStatus() {
+        return caseStatus;
     }
-    
-    public void setReports(String reports) {
-        this.reports = reports;
+
+    public void setCaseStatus(String caseStatus) {
+        this.caseStatus = caseStatus;
     }
-    
-    public String getEmails() {
-        return emails;
+
+    public String getInvoiceId() {
+        return invoiceId;
     }
-    
-    public void setEmails(String emails) {
-        this.emails = emails;
+
+    public void setInvoiceId(String invoiceId) {
+        this.invoiceId = invoiceId;
     }
-    
-    public String getNotifications() {
-        return notifications;
+
+    public String getReportStatus() {
+        return reportStatus;
     }
-    
-    public void setNotifications(String notifications) {
-        this.notifications = notifications;
+
+    public void setReportStatus(String reportStatus) {
+        this.reportStatus = reportStatus;
     }
-    
-    public String getWaiveOff() {
-        return waiveOff;
+
+    public String getInvestigatorName() {
+        return investigatorName;
     }
-    
-    public void setWaiveOff(String waiveOff) {
-        this.waiveOff = waiveOff;
+
+    public void setInvestigatorName(String investigatorName) {
+        this.investigatorName = investigatorName;
     }
-    
-    public String getHistory() {
-        return history;
-    }
-    
-    public void setHistory(String history) {
-        this.history = history;
-    }
-    
 }

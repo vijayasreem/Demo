@@ -1,55 +1,60 @@
 package com.sales.demo.controller;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.sales.demo.model.InvestigationManagementSystem;
+
 import com.sales.demo.service.InvestigationManagementSystemService;
 
 @RestController
-@RequestMapping("/investigation-management-system")
+@RequestMapping("/investigation")
 public class InvestigationManagementSystemController {
-
-    @Autowired
-    private InvestigationManagementSystemService investigationManagementSystemService;
     
-    @GetMapping("/{caseNumber}")
-    public InvestigationManagementSystem findByCaseNumber(@PathVariable Long caseNumber) {
-        return investigationManagementSystemService.findByCaseNumber(caseNumber);
+    @Autowired
+    InvestigationManagementSystemService investigationManagementSystemService;
+
+    @PostMapping("/allocate-internal")
+    public ResponseEntity<?> allocateCasesToInternalInvestigators() {
+        investigationManagementSystemService.allocateCasesToInternalInvestigators();
+        return ResponseEntity.ok("Cases successfully allocated to Internal investigators");
     }
 
-    @GetMapping("/allocate/{internalOrExternal}")
-    public List<InvestigationManagementSystem> findByAllocateToInternalOrExternalInvestigator(@PathVariable String internalOrExternal) {
-        return investigationManagementSystemService.findByAllocateToInternalOrExternalInvestigator(internalOrExternal);
+    @PostMapping("/allocate-external")
+    public ResponseEntity<?> allocateCasesToExternalInvestigators() {
+        investigationManagementSystemService.allocateCasesToExternalInvestigators();
+        return ResponseEntity.ok("Cases successfully allocated to External investigators");
     }
 
-    @PostMapping("/invoice")
-    public void generateInvoiceForExternalInvestigators() {
-        investigationManagementSystemService.generateInvoiceForExternalInvestigators();
+    @PostMapping("/generate-invoices")
+    public ResponseEntity<?> generateInvoicesForExternalInvestigators() {
+        investigationManagementSystemService.generateInvoicesForExternalInvestigators();
+        return ResponseEntity.ok("Invoices successfully generated for External investigators");
     }
 
-    @PostMapping("/report")
-    public void submitReportsToLSOAndClaimsTeam() {
+    @PostMapping("/submit-reports")
+    public ResponseEntity<?> submitReportsToLSOAndClaimsTeam() {
         investigationManagementSystemService.submitReportsToLSOAndClaimsTeam();
+        return ResponseEntity.ok("Reports successfully submitted to LSO and Claims team");
     }
 
-    @PostMapping("/notification")
-    public void sendEmailsAndNotificationsToUsers() {
+    @PostMapping("/send-emails")
+    public ResponseEntity<?> sendEmailsAndNotificationsToUsers() {
         investigationManagementSystemService.sendEmailsAndNotificationsToUsers();
+        return ResponseEntity.ok("Emails and notifications successfully sent to users");
     }
 
-    @PostMapping("/waive")
-    public void waiveOffCases() {
+    @PostMapping("/waive-off")
+    public ResponseEntity<?> waiveOffCases() {
         investigationManagementSystemService.waiveOffCases();
+        return ResponseEntity.ok("Cases successfully waived off");
     }
 
-    @PostMapping("/history")
-    public void maintainHistoryOfCases() {
+    @PostMapping("/maintain-history")
+    public ResponseEntity<?> maintainHistoryOfCases() {
         investigationManagementSystemService.maintainHistoryOfCases();
+        return ResponseEntity.ok("History of cases successfully maintained");
     }
 
 }
