@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ApiService } from 'path-to-api-service';
 
 @Component({
   selector: 'app-newsletter',
@@ -8,23 +9,29 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class NewsletterComponent implements OnInit {
   newsletterForm: FormGroup;
-
-  constructor(private formBuilder: FormBuilder) { }
-
+  
+  constructor(private apiService: ApiService) { }
+  
   ngOnInit() {
-    this.newsletterForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required]
+    this.newsletterForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email])
     });
   }
-
-  sendNewsletters() {
+  
+  sendNewsletter() {
     if (this.newsletterForm.valid) {
-      // Implement API call to send newsletters to registered customers
-      console.log('Sending newsletters...');
-    } else {
-      // Handle form validation errors
-      this.newsletterForm.markAllAsTouched();
+      const email = this.newsletterForm.get('email').value;
+      // Call API to send newsletter
+      this.apiService.sendNewsletter(email).subscribe(
+        response => {
+          // Handle success
+          console.log('Newsletter sent successfully!');
+        },
+        error => {
+          // Handle error
+          console.error('Failed to send newsletter:', error);
+        }
+      );
     }
   }
 }
