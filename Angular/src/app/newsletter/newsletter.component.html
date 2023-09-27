@@ -1,0 +1,21 @@
+﻿
+<form [formGroup]="newsletterForm" (ngSubmit)="sendNewsletters()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" formControlName="email">
+    <div *ngIf="newsletterForm.get('email').invalid && (newsletterForm.get('email').dirty || newsletterForm.get('email').touched)" class="text-danger">
+      <div *ngIf="newsletterForm.get('email').errors.required">Email is required</div>
+      <div *ngIf="newsletterForm.get('email').errors.email">Invalid email format</div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea class="form-control" id="message" formControlName="message"></textarea>
+    <div *ngIf="newsletterForm.get('message').invalid && (newsletterForm.get('message').dirty || newsletterForm.get('message').touched)" class="text-danger">
+      <div *ngIf="newsletterForm.get('message').errors.required">Message is required</div>
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-primary" [disabled]="newsletterForm.invalid">Send Newsletter</button>
+</form>
