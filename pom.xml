@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sales.demo</groupId>
-	<artifactId>SAC-221</artifactId>
+	<artifactId>SAC-220</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>dotnet_p1</name>
