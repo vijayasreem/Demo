@@ -1,0 +1,61 @@
+﻿
+<form [formGroup]="loanForm" (ngSubmit)="submitLoanForm()">
+  <h2>Loan Approval</h2>
+  
+  <!-- Identification -->
+  <div class="form-group">
+    <label for="identification">Identification</label>
+    <input type="text" id="identification" formControlName="identification" class="form-control">
+    <div class="invalid-feedback" *ngIf="loanForm.get('identification').invalid && loanForm.get('identification').touched">
+      Please provide a valid identification.
+    </div>
+  </div>
+  
+  <!-- Proof of Income -->
+  <div class="form-group">
+    <label for="income">Proof of Income</label>
+    <input type="text" id="income" formControlName="income" class="form-control">
+    <div class="invalid-feedback" *ngIf="loanForm.get('income').invalid && loanForm.get('income').touched">
+      Please provide valid proof of income.
+    </div>
+  </div>
+  
+  <!-- Credit History -->
+  <div class="form-group">
+    <label for="creditHistory">Credit History</label>
+    <input type="text" id="creditHistory" formControlName="creditHistory" class="form-control">
+    <div class="invalid-feedback" *ngIf="loanForm.get('creditHistory').invalid && loanForm.get('creditHistory').touched">
+      Please provide valid credit history.
+    </div>
+  </div>
+  
+  <!-- Employment Details -->
+  <div class="form-group">
+    <label for="employmentDetails">Employment Details</label>
+    <input type="text" id="employmentDetails" formControlName="employmentDetails" class="form-control">
+    <div class="invalid-feedback" *ngIf="loanForm.get('employmentDetails').invalid && loanForm.get('employmentDetails').touched">
+      Please provide valid employment details.
+    </div>
+  </div>
+  
+  <!-- Vehicle Assessment -->
+  <div class="form-group">
+    <label for="vehicleAssessment">Vehicle Assessment</label>
+    <input type="text" id="vehicleAssessment" formControlName="vehicleAssessment" class="form-control">
+    <div class="invalid-feedback" *ngIf="loanForm.get('vehicleAssessment').invalid && loanForm.get('vehicleAssessment').touched">
+      Please provide a valid vehicle assessment.
+    </div>
+  </div>
+  
+  <!-- Loan Offer Acceptance -->
+  <div class="form-check">
+    <input type="checkbox" id="loanOfferAcceptance" formControlName="loanOfferAcceptance" class="form-check-input">
+    <label for="loanOfferAcceptance" class="form-check-label">I accept the loan offer</label>
+    <div class="invalid-feedback" *ngIf="loanForm.get('loanOfferAcceptance').invalid && loanForm.get('loanOfferAcceptance').touched">
+      Please accept the loan offer.
+    </div>
+  </div>
+  
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="loanForm.invalid" class="btn btn-primary">Submit</button>
+</form>
