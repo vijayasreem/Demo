@@ -1,0 +1,69 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loan_Application__c</fullName>
+    <label>Loan Application</label>
+    <pluralLabel>Loan Applications</pluralLabel>
+    <nameField>
+        <label>Loan Application Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ReadWrite</sharingModel>
+    <fields>
+        <fullName>Credit_Score__c</fullName>
+        <label>Credit Score</label>
+        <type>Number</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Pre_Qualification_Status__c</fullName>
+        <label>Pre-Qualification Status</label>
+        <type>Text</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Loan_Amount__c</fullName>
+        <label>Loan Amount</label>
+        <type>Currency</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Interest_Rate_Range__c</fullName>
+        <label>Interest Rate Range</label>
+        <type>Text</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Pre_Qualification_Explanation__c</fullName>
+        <label>Pre-Qualification Explanation</label>
+        <type>LongTextArea</type>
+        <required>true</required>
+    </fields>
+</CustomObject>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Financial_History__c</fullName>
+    <label>Financial History</label>
+    <pluralLabel>Financial Histories</pluralLabel>
+    <nameField>
+        <label>Financial History Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ReadWrite</sharingModel>
+    <fields>
+        <fullName>Credit_History__c</fullName>
+        <label>Credit History</label>
+        <type>Text</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Applicant__c</fullName>
+        <label>Applicant</label>
+        <type>Lookup</type>
+        <required>true</required>
+        <referenceTo>Loan_Application__c</referenceTo>
+    </fields>
+</CustomObject>
