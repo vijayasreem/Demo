@@ -1,0 +1,75 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>F&F Approval Request</label>
+    <pluralLabel>F&F Approval Requests</pluralLabel>
+    <nameField>
+        <label>Request Name</label>
+        <type>Text</type>
+    </nameField>
+    <fields>
+        <fullName>Case_Remarks__c</fullName>
+        <label>Case Remarks</label>
+        <type>TextArea</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <label>Status</label>
+        <type>Picklist</type>
+        <picklist>
+            <picklistValues>
+                <fullName>F&F Approval Pending with QC2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+        </picklist>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Recommendation__c</fullName>
+        <label>Recommendation</label>
+        <type>TextArea</type>
+        <required>false</required>
+    </fields>
+    <recordTypes>
+        <fullName>Default</fullName>
+        <label>Default</label>
+        <active>true</active>
+    </recordTypes>
+    <layouts>
+        <fullName>F&F_Approval_Request_Layout</fullName>
+        <layoutSections>
+            <heading>F&F Approval Request Information</heading>
+            <layoutColumns>
+                <layoutItems>
+                    <field>Case_Remarks__c</field>
+                    <field>Status__c</field>
+                    <field>Recommendation__c</field>
+                </layoutItems>
+            </layoutColumns>
+        </layoutSections>
+    </layouts>
+    <listViews>
+        <fullName>All_FF_Approval_Requests</fullName>
+        <label>All F&F Approval Requests</label>
+        <filterScope>Everything</filterScope>
+        <columns>
+            <field>Case_Remarks__c</field>
+            <field>Status__c</field>
+            <field>Recommendation__c</field>
+        </columns>
+    </listViews>
+    <tabs>
+        <fullName>F&F_Approval_Request</fullName>
+        <label>F&F Approval Request</label>
+        <sObjectName>F&F_Approval_Request__c</sObjectName>
+    </tabs>
+</CustomObject>
